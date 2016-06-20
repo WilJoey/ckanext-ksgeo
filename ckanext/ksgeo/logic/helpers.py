@@ -10,15 +10,20 @@ def get_site_statistics_geo():
     '''
 
     stats = {}
+
     stats['dataset_count'] = tk.get_action('package_search')(
         {}, {"rows": 1, 'fq': '!dataset_type:showcase'})['count']
-    #stats['dataset_count'] = logic.get_action('package_search')(
-    #    {}, {"rows": 1})['count']
+
+    stats['showcase_count'] = tk.get_action('package_search')(
+        {}, {"rows": 1, 'fq': 'dataset_type:showcase'})['count']
+
     stats['group_count'] = len(logic.get_action('group_list')({}, {}))
+
     stats['organization_count'] = len(
         logic.get_action('organization_list')({}, {}))
     
     stats['resource_count'] = get_resource_count()
+
     return stats
 
 def get_resource_count():
