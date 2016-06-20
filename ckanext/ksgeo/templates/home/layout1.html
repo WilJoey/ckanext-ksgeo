@@ -7,7 +7,6 @@
         {% endblock %}
       </div>
       <div class="span6 col2">
-          <h1>GEO</h1>
         {% block search %}
           {% snippet 'home/snippets/search.html' %}
         {% endblock %}
@@ -29,10 +28,13 @@
         {# End template block example. #}
       </div>
       <div class="span6 col2">
+        {% block stats %}
+          {% snippet 'home/snippets/stats.html' %}
+        {% endblock %}
+        <br/>
         {% block featured_organization %}
           {% snippet 'home/snippets/featured_organization.html' %}
         {% endblock %}
-      </div>
     </div>
   </div>
 </div>
